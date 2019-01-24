@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ssomai.android.scalablelayout.ScalableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:scale_base_height="1920"
+    app:scale_base_width="1080"
+    tools:context=".LoginActivity"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:scale_width="400"
+        app:scale_height="200"
+        android:text="잉모"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"/>
+
+
+</com.ssomai.android.scalablelayout.ScalableLayout>
