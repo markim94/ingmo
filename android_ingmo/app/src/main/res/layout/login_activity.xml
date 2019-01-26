@@ -31,11 +31,10 @@
         android:layout_weight="2"
         android:gravity="center">
 
-        <Button
+        <com.kakao.usermgmt.LoginButton
             android:id="@+id/btnLoginKakao"
             android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:text="카카오톡 로그인"/>
+            android:layout_height="60dp" />
 
         <Button
             android:id="@+id/btnLoginFacebook"

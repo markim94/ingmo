@@ -12,10 +12,12 @@ import android.os.Bundle;
 
 public class IntroActivity extends AppCompatActivity {
 
+    private static final String TAG = "IntroActivity";
+
     // 인트로 실행시간을 설정하기 위한 handler
     Handler handler = new Handler();
     // 쓰레드
-    Runnable runnable = new Runnable() {
+    Runnable r = new Runnable() {
         @Override
         public void run() {
             // LoginActivity 전환
@@ -36,14 +38,14 @@ public class IntroActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         // 3000ms 이후 runnable 객체 수행
-        handler.postDelayed(runnable, 3000);
+        handler.postDelayed(r, 3000);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         // 예약 취소
-        handler.removeCallbacks(runnable);
+        handler.removeCallbacks(r);
     }
 
 
