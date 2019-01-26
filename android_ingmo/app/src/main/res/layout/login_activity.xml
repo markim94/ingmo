@@ -1,24 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ssomai.android.scalablelayout.ScalableLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:scale_base_height="1920"
-    app:scale_base_width="1080"
-    tools:context=".LoginActivity"
-    android:background="@color/colorPrimary">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/layoutTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:scale_width="400"
-        app:scale_height="200"
-        android:text="잉모"
+        android:orientation="vertical"
+        android:layout_weight="3"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="50dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="잉모" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="2"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnLoginKakao"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:text="카카오톡 로그인"/>
+
+        <Button
+            android:id="@+id/btnLoginFacebook"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:text="페이스북 로그인"/>
+
+        <Button
+            android:id="@+id/btnLoginNaver"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:text="네이버 로그인"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:gravity="center"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimary"/>
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:background="@drawable/image_intro"/>
 
 
-</com.ssomai.android.scalablelayout.ScalableLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

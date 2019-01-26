@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ssomai.android.scalablelayout.ScalableLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.ssomai.android.scalablelayout.ScalableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".IntroActivity"
-    app:scale_base_width="1080"
-    app:scale_base_height="1920"
-    android:background="@drawable/image_intro">
+    app:scale_base_width="1200"
+    app:scale_base_height="1920">
+
+    <!-- 인트로 이미지 뷰(현재 테스트 이미지 사용중) -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:scale_width="1260"
+        app:scale_height="1920"
+        android:background="@drawable/image_intro"/>
 
 </com.ssomai.android.scalablelayout.ScalableLayout>
