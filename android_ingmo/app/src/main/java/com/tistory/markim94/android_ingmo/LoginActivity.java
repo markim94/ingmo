@@ -224,7 +224,7 @@ public class LoginActivity extends AppCompatActivity {
                     long number = userProfile.getId();
 
                     // 로그인 성공시 액티비티 전환
-                    redirectLoginActivity();
+                    //redirectLoginActivity();
 
 
                 }
