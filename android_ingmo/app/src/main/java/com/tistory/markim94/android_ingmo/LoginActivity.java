@@ -10,6 +10,12 @@ import android.util.Base64;
 import android.util.Log;
 import android.widget.Button;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.kakao.auth.ErrorCode;
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
@@ -19,6 +25,8 @@ import com.kakao.usermgmt.callback.MeResponseCallback;
 import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.exception.KakaoException;
 import com.tistory.markim94.android_ingmo.Connections.PostConnection;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 
 import java.util.Map;
 
@@ -32,9 +40,13 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
 
     com.kakao.usermgmt.LoginButton btnLoginKakao;
-    Button btnLoginFacebook;
+    LoginButton btnLoginFacebook;
     Button btnLoginNaver;
 
+    // facebook callback
+    private CallbackManager callbackManager;
+
+    // kakao callback
     private SessionCallback callback;
 
     // 카카오 정보를 담을 컬렉션 map(key, value)
@@ -49,14 +61,56 @@ public class LoginActivity extends AppCompatActivity {
         // 로그인 레이아웃
         layoutLogin();
 
+        /**
+         * kakaotalk Login
+         */
         callback = new SessionCallback();
         Session.getCurrentSession().addCallback(callback);
 
-        // 사용자 정보 요청
+        /**
+         * facebook Login
+         */
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
+        callbackManager = CallbackManager.Factory.create();
+        // 읽어오는 권한 (이메일)
+        btnLoginFacebook.setReadPermissions("email");
+
+        // login result에 거부된 권한과 accesstoken이 날라옴.
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+
+                        //loginResult.getAccessToken();
+                        // App code
+                        Log.d(TAG,"onSucces LoginResult="+loginResult);
+                        // accesstoken을 db로 보낸다
+                        // 이후 redirectionMain 인텐트 전환
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        // App code
+                        Log.d(TAG,"onCancel");
+                        // error코드 확인후 팝업 윈도우 메시지 보낼것.
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                        // App code
+                        Log.d(TAG,"onError");
+                        // error코드 확인후 팝업 윈도우 메시지 보낼것.
+                    }
+                });
+
+
+        // kakaotalk Login : 사용자 정보 요청
         requestMe();
 
     }
 
+    // kakao talk 세션성공시, 진행하는 메소드
     public void redirectLoginActivity() {
         String token = Session.getCurrentSession().getAccessToken();
         if (token.length() > 0) {
@@ -84,16 +138,18 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
+    /**
+     * 로그인 버튼 레이아웃
+     */
     void layoutLogin(){
 
-        // 로그인 버튼 객체 참조
         btnLoginKakao = findViewById(R.id.btnLoginKakao);
         btnLoginFacebook = findViewById(R.id.btnLoginFacebook);
         btnLoginNaver = findViewById(R.id.btnLoginNaver);
 
     }
 
+    // kakaotalk Login: 정보 얻어오기
     public void requestMe() {
         //유저의 정보를 받아오는 함수
 
@@ -125,13 +181,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    // kakaotalk session
     class SessionCallback implements ISessionCallback {
 
 
         @Override
         public void onSessionOpened() {
-
-
             UserManagement.requestMe(new MeResponseCallback() {
 
                 @Override
@@ -184,6 +239,17 @@ public class LoginActivity extends AppCompatActivity {
 
         }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // facebook 정보 받아오기
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+
+
 
 
 }
