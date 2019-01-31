@@ -1,5 +1,6 @@
 package com.tistory.markim94.android_ingmo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,11 @@ public class MemoInsertActivity extends AppCompatActivity {
     Button btnDeleteMemo;
     Button btnCancelMemo;
 
+
+    // 인텐트로 전달된 메모의 모드를 저장할 String
+    String mMemoMode;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,9 +30,13 @@ public class MemoInsertActivity extends AppCompatActivity {
         // 타이틀 상태버튼과 하단부의 버튼 객체 참조 메소드.
         buttonLayout();
 
-
+        
 
     }
+
+
+
+
 
 
     /**
