@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/*
+ * create by brother jun
+ *
+ * */
 public class MemoInsertActivity extends AppCompatActivity {
 
     Button btnStatusMemo;

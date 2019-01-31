@@ -9,6 +9,10 @@ import android.widget.ListView;
 
 import java.util.List;
 
+/*
+ * create by brother jun
+ *
+ * */
 public class MemoListActivity extends AppCompatActivity {
 
     Button btnAddMemo;

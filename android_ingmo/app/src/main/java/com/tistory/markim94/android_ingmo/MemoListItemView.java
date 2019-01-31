@@ -7,10 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
-
+/*
+ * create by brother jun
+ *
+ * */
 public class MemoListItemView extends LinearLayout {
 
     TextView itemMemoTitle;
@@ -40,6 +44,7 @@ public class MemoListItemView extends LinearLayout {
             public void onClick(View v) {
 
                 // btn의 star 상태를 확인하여 반대로 background resource를 전환
+                // Toast.makeText(mContext,"중요 메모가 해지됐습니다.", Toast.LENGTH_SHORT);
 
 
             }
@@ -59,7 +64,6 @@ public class MemoListItemView extends LinearLayout {
      * 2번 인덱스 : 중요 메모 확인
      */
     public void setContents(int index, String data){
-
         if (index ==0){
             itemDate.setText(data);
         } else if (index ==1){
@@ -67,10 +71,11 @@ public class MemoListItemView extends LinearLayout {
             itemMemoText.setText(data.substring(12));
         } else if (index ==2){
             // starmemo가 체크되어 있을 경우
-            if(data == "checked"){
+            if(data == "true"){
                 btnStarMemo.setBackgroundResource(R.drawable.btn_star);
             } else {
                 btnStarMemo.setBackgroundResource(R.drawable.btn_non_star);
+
             }
         }
     }

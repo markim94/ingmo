@@ -9,7 +9,6 @@ import android.os.Bundle;
 * create by brother jun
 *
 * */
-
 public class IntroActivity extends AppCompatActivity {
 
     private static final String TAG = "IntroActivity";
