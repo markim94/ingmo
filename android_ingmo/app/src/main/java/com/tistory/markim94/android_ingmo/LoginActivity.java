@@ -62,6 +62,13 @@ public class LoginActivity extends AppCompatActivity {
         layoutLogin();
 
         /**
+         * 1. 로그인이 된 상태면, 로그인 액티비티 생략할 것.
+         * 2. 그것이 아니라면 권한체크를 안내하는 팝업윈도우와 해당 팝업윈도우 버튼 클릭시, 권한 허가
+         *
+         */
+
+
+        /**
          * kakaotalk Login
          */
         callback = new SessionCallback();
@@ -143,9 +150,9 @@ public class LoginActivity extends AppCompatActivity {
      */
     void layoutLogin(){
 
-        btnLoginKakao = findViewById(R.id.btnLoginKakao);
-        btnLoginFacebook = findViewById(R.id.btnLoginFacebook);
-        btnLoginNaver = findViewById(R.id.btnLoginNaver);
+        btnLoginKakao = (com.kakao.usermgmt.LoginButton) findViewById(R.id.btnLoginKakao);
+        btnLoginFacebook = (LoginButton) findViewById(R.id.btnLoginFacebook);
+        btnLoginNaver = (Button) findViewById(R.id.btnLoginNaver);
 
     }
 
