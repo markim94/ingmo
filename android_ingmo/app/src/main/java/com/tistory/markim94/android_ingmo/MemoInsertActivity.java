@@ -30,7 +30,7 @@ public class MemoInsertActivity extends AppCompatActivity {
         // 타이틀 상태버튼과 하단부의 버튼 객체 참조 메소드.
         buttonLayout();
 
-        
+
 
     }
 

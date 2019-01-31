@@ -92,6 +92,12 @@ public class LoginActivity extends AppCompatActivity {
                         //loginResult.getAccessToken();
                         // App code
                         Log.d(TAG,"onSucces LoginResult="+loginResult);
+
+                        // test용 intent전환
+                        Intent intent = new Intent(getApplicationContext(), MemoListActivity.class);
+                        startActivity(intent);
+
+
                         // accesstoken을 db로 보낸다
                         // 이후 redirectionMain 인텐트 전환
                     }
