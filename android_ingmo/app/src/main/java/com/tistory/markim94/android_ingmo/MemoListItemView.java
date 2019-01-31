@@ -27,7 +27,7 @@ public class MemoListItemView extends LinearLayout {
     public MemoListItemView(Context context) {
         super(context);
 
-        // 해당 context에 토스트 메시지등을 띄우기 위해 객체를 mContext에 저장
+        // 리스트뷰가 존재하는 context에 토스트 메시지등을 띄우기 위해 adapter로 부터 context를 받아 mContext에 저장한다.
         mContext = context;
 
         // 인플레이터
@@ -51,8 +51,6 @@ public class MemoListItemView extends LinearLayout {
         });
 
     }
-
-
 
     /**
      * memo list data를 지정하는 메소드
