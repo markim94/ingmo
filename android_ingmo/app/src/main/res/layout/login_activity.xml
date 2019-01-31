@@ -34,19 +34,21 @@
         <com.kakao.usermgmt.LoginButton
             android:id="@+id/btnLoginKakao"
             android:layout_width="300dp"
-            android:layout_height="60dp" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"/>
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/btnLoginFacebook"
             android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:text="페이스북 로그인"/>
+            android:layout_height="wrap_content"
+            android:text="페이스북 로그인"
+            android:layout_marginBottom="10dp"/>
 
         <Button
             android:id="@+id/btnLoginNaver"
             android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:text="네이버 로그인"/>
+            android:layout_height="wrap_content"
+            android:text="잉모 회원가입"/>
 
     </LinearLayout>
 
