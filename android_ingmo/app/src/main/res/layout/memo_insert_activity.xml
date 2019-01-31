@@ -14,12 +14,35 @@
         android:orientation="vertical"
         android:layout_weight="1">
 
-        <Button
-            android:id="@+id/btnStatusMemo"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="6"
-            android:text="상단 타이틀"/>
+            android:layout_height="wrap_content">
+
+
+
+            <Button
+                android:id="@+id/btnStatusMemo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                android:text="상단 타이틀"/>
+
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:text="#" />
+
+            <Button
+                android:id="@+id/btnStarMemo"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="end|center"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/btn_non_star"/>
+
+
+
+        </FrameLayout>
 
         <EditText
             android:layout_width="match_parent"
