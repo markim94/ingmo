@@ -12,9 +12,6 @@ public class MemoListItem {
     // 메모 고유 id
     private String mId;
 
-    // 메모 아이템의 선택여부
-    private boolean mSelectable = true;
-
     /**
      * constructor
      * @param mId
@@ -32,12 +29,6 @@ public class MemoListItem {
         mData[1] = memoText;
         mData[2] = isStarChecked;
     }
-
-    // item 선택여부 반환(getter)
-    public boolean isSelectable() { return mSelectable; }
-
-    // selectable setter
-    public void setSelectable(boolean selectable) { mSelectable = selectable; }
 
     // Id getter
     public String getId() { return mId; }

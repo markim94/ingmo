@@ -45,8 +45,6 @@ public class MemoListItemView extends LinearLayout {
 
                 // btn의 star 상태를 확인하여 반대로 background resource를 전환
                 // Toast.makeText(mContext,"중요 메모가 해지됐습니다.", Toast.LENGTH_SHORT);
-
-
             }
         });
 
