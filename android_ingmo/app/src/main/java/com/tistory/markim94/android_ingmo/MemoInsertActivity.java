@@ -1,5 +1,8 @@
 package com.tistory.markim94.android_ingmo;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -79,6 +82,7 @@ public class MemoInsertActivity extends AppCompatActivity {
 
 
     public void setStatusMemo(String mMemoDate, String mMemoStarChecked){
+        // date받아서 그대로 갖고 있다가 반환
         if (mMemoStarChecked.equals("true")){
             isChecked = true;
             btnStarMemo.setBackgroundResource(R.drawable.btn_star);
@@ -106,14 +110,14 @@ public class MemoInsertActivity extends AppCompatActivity {
         btnCancelMemo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 실행코드
+                finish();
             }
         });
 
         btnDeleteMemo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // dialog를 띄운후, 삭제 누를시
+                onCreateDialog(1);
             }
         });
 
@@ -132,5 +136,59 @@ public class MemoInsertActivity extends AppCompatActivity {
         });
 
     }
+
+
+    private void saveInput(){
+
+        // db에 새로이 데이터 추가하는것
+    }
+
+    private void modifyInput(){
+
+        // db 레코드 수
+    }
+
+    private boolean parseValues(){
+
+        // 메모모드가 modify, view일 경우
+        // memoText 받아와서 1보다 적을 경우 메모 길이 더 늘리라는 dialog띄우기
+
+        return true;
+    }
+
+
+    public void deleteMemo(){
+
+        // db에서 메모를 지우는
+    }
+
+
+
+    protected Dialog onCreateDialog(int id){
+        AlertDialog.Builder builder = null;
+
+        switch (id){
+            // case별로
+            case 1:
+                builder = new AlertDialog.Builder(this);
+                builder.setTitle("잉모");
+                builder.setMessage("메모를 삭제하시겠습니까?");
+                builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deleteMemo();
+                    }
+                });
+                builder.setNegativeButton("아니요", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dismissDialog(1);
+                    }
+                });
+                break;
+        }
+        return builder.create();
+    }
+
 
 }
