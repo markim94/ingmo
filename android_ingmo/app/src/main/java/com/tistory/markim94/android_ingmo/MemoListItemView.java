@@ -63,8 +63,13 @@ public class MemoListItemView extends LinearLayout {
         if (index ==0){
             itemDate.setText(data);
         } else if (index ==1){
-            itemMemoTitle.setText(data.substring(0,11));
-            itemMemoText.setText(data.substring(12));
+            if(data.length() < 12){
+                itemMemoTitle.setText(data.substring(0));
+                itemMemoText.setText(data.substring(0));
+            } else {
+                itemMemoTitle.setText(data.substring(0,11));
+                itemMemoText.setText(data.substring(12));
+            }
         } else if (index ==2){
             // starmemo가 체크되어 있을 경우
             if(data == "true"){

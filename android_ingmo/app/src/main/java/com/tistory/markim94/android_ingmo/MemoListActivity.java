@@ -64,7 +64,10 @@ public class MemoListActivity extends AppCompatActivity {
 
     // 커스텀 리스트뷰의 정상작동을 확인하기 위한 addItem 메소드
     public void testingAddItem(){
-        memoListAdapter.addItem(new MemoListItem("1","2013년 1월 22일","나의 메모","true"));
+        memoListAdapter.addItem(new MemoListItem("1","2013년 1월 22일","나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모","true"));
+        memoListAdapter.addItem(new MemoListItem("2","2013년 1월 22일","나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모","true"));
+        memoListAdapter.addItem(new MemoListItem("3","2013년 1월 22일","나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모","true"));
+        memoListAdapter.addItem(new MemoListItem("4","2013년 1월 22일","나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모","true"));
     }
 
 
