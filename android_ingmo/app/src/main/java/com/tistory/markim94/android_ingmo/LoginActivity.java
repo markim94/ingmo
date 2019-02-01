@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 
 import com.facebook.CallbackManager;
@@ -159,6 +160,19 @@ public class LoginActivity extends AppCompatActivity {
         btnLoginKakao = (com.kakao.usermgmt.LoginButton) findViewById(R.id.btnLoginKakao);
         btnLoginFacebook = (LoginButton) findViewById(R.id.btnLoginFacebook);
         btnLoginNaver = (Button) findViewById(R.id.btnLoginNaver);
+
+
+        /**
+         * 테스팅을 위해서 바로 액티비티 전환하기 버튼 추가
+         */
+        btnLoginNaver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MemoListActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 
