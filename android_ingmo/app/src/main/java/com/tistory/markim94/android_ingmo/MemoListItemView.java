@@ -63,6 +63,7 @@ public class MemoListItemView extends LinearLayout {
         if (index ==0){
             itemDate.setText(data);
         } else if (index ==1){
+            // ++ 메모의 내용이 12자보다 적을 경우
             if(data.length() < 12){
                 itemMemoTitle.setText(data.substring(0));
                 itemMemoText.setText(data.substring(0));
