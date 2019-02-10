@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,8 @@ import android.widget.EditText;
  *
  * */
 public class MemoInsertActivity extends AppCompatActivity {
+
+    public static final String TAG = "MemoInsertActivity";
 
     // button 객체
     Button btnStatusMemo;
@@ -44,6 +47,7 @@ public class MemoInsertActivity extends AppCompatActivity {
 
         // 타이틀 상태버튼과 하단부의 버튼 객체 참조 메소드.
         buttonLayout();
+        Log.d(TAG,"buttonLayout finish");
 
         // memolist activity에서 getIntent.
         Intent intent = getIntent();
@@ -107,6 +111,8 @@ public class MemoInsertActivity extends AppCompatActivity {
         btnCancelMemo = (Button)findViewById(R.id.btnCancelMemo);
         btnStarMemo = (Button)findViewById(R.id.btnStarMemo);
 
+        Log.d(TAG,"buttonLayout load");
+
         btnCancelMemo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,6 +131,8 @@ public class MemoInsertActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 실행코드
+
+
             }
         });
 
@@ -141,11 +149,13 @@ public class MemoInsertActivity extends AppCompatActivity {
     private void saveInput(){
 
         // db에 새로이 데이터 추가하는것
+        Log.d(TAG,"saveInput start");
     }
 
     private void modifyInput(){
 
         // db 레코드 수
+        Log.d(TAG,"modifyInput start");
     }
 
     private boolean parseValues(){
@@ -177,15 +187,18 @@ public class MemoInsertActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         deleteMemo();
+                        Log.d(TAG,"deleteMemo finish");
                     }
                 });
                 builder.setNegativeButton("아니요", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dismissDialog(1);
+                        Log.d(TAG,"dismissDialog finish");
                     }
                 });
                 break;
+            //case 2:
         }
         return builder.create();
     }

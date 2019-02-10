@@ -14,6 +14,8 @@ import android.widget.ListView;
  * */
 public class MemoListActivity extends AppCompatActivity {
 
+    public static final String TAG = "MemoListActivity";
+
     // memo add button
     Button btnAddMemo;
 
@@ -62,6 +64,7 @@ public class MemoListActivity extends AppCompatActivity {
     }
 
 
+    // db 연동 후 삭제할 부분
     // 커스텀 리스트뷰의 정상작동을 확인하기 위한 addItem 메소드
     public void testingAddItem(){
         memoListAdapter.addItem(new MemoListItem("1","2013년 1월 22일","나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모나의 메모","true"));
